@@ -1,0 +1,232 @@
+<html>
+
+<head>
+
+	<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/d91c8bde92.js" crossorigin="anonymous"></script>
+	<script src="js/recorder.js"></script>
+	<script src="js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body onload="hideTable()">
+
+	<div class="container">
+		<div class="row">
+			<a class="navbar-brand" href="#"><img src="Group3.png" height="25" alt="logo"></a>
+			<a class="navbar-brand text-dark ml-1 " style="padding:20px;font-size:20px;">ACHYUTAS SOFT PVT LTD</a>
+			<span class="emailField"> <b>Email:</b> <input type="email" id="emailField" onchange="onChange()" /> </span>
+			<br>
+			<br>
+			<br>
+			<br>
+		</div>
+		<div class="row" style="font-family: proxima nova;-webkit-font-smoothing: antialiased; font-size:18px">
+			<div class="col-sm-11 text-center noteText"><b>Note: Submit 10 interview questions in all the three levels,
+					i.e., Easy, Medium and Hard in your respective skill and become one of our panel members</b></div>
+		</div>
+
+		<div id="errorMessage"></div>
+
+		<div class="row">
+			<div>
+				<div class="wrapper2">
+					<nav>
+						<ul class="menu-area2">
+							<li> <a href="#"> <strong> Skills </strong> <i class="dropdown-toggle"
+										style="float:right"></i></a>
+								<ul id="skills" onclick=getSkills(event)>
+									<li> <a href="#" id="q1">Java</a> </li>
+									<li> <a href="#" id="q2">Python</a> </li>
+									<li> <a href="#" id="q3">JavaScript</a> </li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div> <!-- end of left menu item -->
+			<div>
+				<div class="wrapper">
+					<nav>
+						<ul class="menu-area">
+							<li> <a href="#"> <i class="fa fa-bars" style="font-size:16px;"></i> <strong>Level Of
+										Questions <i class="fas fa-chevron-right" style="float:right"></strong></i></a>
+								<ul id="levelOfQuestions" onclick=getLevelOfExperience(event)>
+									<li> <a href="#" id="q1">Fresher (0) <i class="fas fa-chevron-right"
+												style="float:right"></i></a>
+										<!-- <ul id="Fresher" class="1">
+											<li> <a href="#" id="q1">Easy</a> </li>
+											<li> <a href="#" id="q2">Medium</a> </li>
+											<li> <a href="#" id="q3">Hard</a> </li>
+										</ul> -->
+									</li>
+									<li> <a href="#" id="q2"> Intermediate (0-3) <i class="fas fa-chevron-right"
+												style="float:right"></i> </a>
+										<!-- <ul id="Intermediate" class="2">
+											<li> <a href="#" id="q1">Easy</a> </li>
+											<li> <a href="#" id="q2">Medium</a> </li>
+											<li> <a href="#" id="q3">Hard</a> </li>
+										</ul> -->
+									</li>
+									<li> <a href="#" id="q3"> Mid-Level(4-6) <i class="fas fa-chevron-right"
+												style="float:right"></i></a>
+										<!-- <ul id="Mid-Level" class="3">
+											<li> <a href="#" id="q1">Easy</a> </li>
+											<li> <a href="#" id="q2">Medium</a> </li>
+											<li> <a href="#" id="q3">Hard</a> </li>
+										</ul> -->
+									</li>
+									<li> <a href="#" id="q4"> Lead (>6) <i class="fas fa-chevron-right"
+												style="float:right"></i> </a>
+										<!-- <ul id="Lead" class="4">
+											<li> <a href="#" id="q1">Easy</a> </li>
+											<li> <a href="#" id="q2">Medium</a> </li>
+											<li> <a href="#" id="q3">Hard</a> </li>
+										</ul> -->
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div> <!-- end of menu item -->
+			<div>
+				<div class="wrapper3">
+					<div id="selectedSkill"></div>
+				</div>
+			</div>
+			<div>
+				<div class="wrapper4">
+					<div id="selectedExperience"></div>
+				</div>
+			</div>
+
+
+		</div> <!-- end of 1st ROW -->
+		<br>
+		<div>
+			Easy Questions: 
+			<span>
+				<button onclick=addnew(this); id="addNewQuestion1" class="btn btn-primary" data-questionLevel="easy">
+					ADD NEW QUESTION
+				</button>
+			</span>
+		</div>
+		
+		<div id="wholeTable"> 
+			<div class="row">
+				<table class="table" id="POITable1">
+
+					<tbody>
+						<tr>
+							<th class="col-sm-2">Question no.</th>
+							<th class="col-sm-2">Question</th>
+							<th class="col-sm-4">Audio</th>
+							<th class="col-sm-4">Audio Controls</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="row" id="demo"> </div>
+
+			<!-- Question no :- 2 -->
+
+			<br>
+		</div>
+
+		
+		
+		
+		<div>
+			Medium Questions: 
+			<span>
+				<button onclick=addnew(this); id="addNewQuestion2" class="btn btn-primary disabled" data-questionLevel="medium">
+					ADD NEW QUESTION
+				</button>
+			</span>
+		</div>
+		
+
+		<div> 
+			<div class="row">
+				<table class="table" id="POITable2">
+
+					<tbody>
+						<tr>
+							<th class="col-sm-2">Question no.</th>
+							<th class="col-sm-2">Question</th>
+							<th class="col-sm-4">Audio</th>
+							<th class="col-sm-4">Audio Controls</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="row" id="demo"> </div>
+
+			<!-- Question no :- 2 -->
+			<br>	
+		</div> 
+
+		<div>
+			Hard Questions: 
+			<span>
+				<button onclick=addnew(this); id="addNewQuestion3" class="btn btn-primary disabled" data-questionLevel="hard">
+					ADD NEW QUESTION
+				</button>
+			</span>
+		</div>
+
+		<div> 
+			<div class="row">
+				<table class="table" id="POITable3">
+
+					<tbody>
+						<tr>
+							<th class="col-sm-2">Question no.</th>
+							<th class="col-sm-2">Question</th>
+							<th class="col-sm-4">Audio</th>
+							<th class="col-sm-4">Audio Controls</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="row" id="demo"> </div>
+
+			<!--  Question no :- 2  -->
+
+			<br>
+
+			
+		</div>
+
+		<div class="row">
+			<!-- <div class="col-sm-6">
+				<button onclick=addnew(); id="addNewQuestion" class="btn btn-primary float-right">
+					ADD NEW QUESTION
+				</button>
+			</div> -->
+			<div class="col-sm-6">
+				<button onclick=submitFormDataEvent(e); id="submitButton" data-toggle="tooltip" data-placement="right"
+					title="Please enter 10 questions from each level of questions in a module to submit" 
+					class="btn btn-primary float-left disabled"> 
+					SUBMIT 
+				</button>
+			</div>
+		</div>
+		<br>
+	</div>
+
+	<!-- Footer -->
+</body>
+</html>
