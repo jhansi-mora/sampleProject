@@ -1,4 +1,7 @@
 // Tooltips Initialization
+
+
+///sneha chaandra 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
