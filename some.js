@@ -2,6 +2,9 @@
 //who wrote this program??
 
 // Tooltips Initialization
+
+
+///sneha chaandra 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
